@@ -99,7 +99,5 @@ func (r *RotateFile) dailyrotate() {
 	if err := r.openfile(); err != nil {
 		stdlog.Println(err)
 	}
-	if err := os.Remove(fmt.Sprintf("%v.%v", r.filename, yesterday.AddDate(0, 0, -r.rotate).Format(DateTimeFormat))); err != nil {
-		stdlog.Println(err)
-	}
+	os.Remove(fmt.Sprintf("%v.%v", r.filename, yesterday.AddDate(0, 0, -r.rotate).Format(DateTimeFormat)))
 }
