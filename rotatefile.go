@@ -2,17 +2,18 @@ package rotatefile
 
 import (
 	"fmt"
-	"github.com/robfig/cron"
 	"log"
 	"os"
 	"path/filepath"
 	"sync"
 	"time"
+
+	"github.com/robfig/cron"
 )
 
 var (
 	stdlog         = log.New(os.Stderr, "rotatefile", log.Lshortfile|log.LstdFlags)
-	dailyspec      = "0 0 0 * * *"
+	dailyspec      = "@daily"
 	dailycron      *cron.Cron
 	DateTimeFormat = "2006-01-02"
 )
